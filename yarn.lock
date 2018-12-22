@@ -1314,6 +1314,11 @@ combined-stream@^1.0.6, combined-stream@~1.0.6:
   dependencies:
     delayed-stream "~1.0.0"
 
+comlinkjs@^3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/comlinkjs/-/comlinkjs-3.1.1.tgz#2d0ea26f87f946896e07ba30b2890c5253da5696"
+  integrity sha512-hjKOSeVlOqVq/QFDLR9I1weBVskeBfgdEwizVkn2NtBtq6YDDBFgQIiJA5N6yJxsAvgo0fS7sHvE5XdyCyD6wQ==
+
 commander@^2.12.1:
   version "2.19.0"
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.19.0.tgz#f6198aa84e5b83c46054b94ddedbfed5ee9ff12a"

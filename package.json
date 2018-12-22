@@ -19,6 +19,7 @@
     "@angular/platform-browser": "~7.1.0",
     "@angular/platform-browser-dynamic": "~7.1.0",
     "@angular/router": "~7.1.0",
+    "comlinkjs": "^3.1.1",
     "core-js": "^2.5.4",
     "ngx-build-plus": "^7.5.1",
     "rxjs": "~6.3.3",
