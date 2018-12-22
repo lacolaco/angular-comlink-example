@@ -11,8 +11,9 @@
       "schematics": {},
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "ngx-build-plus:build",
           "options": {
+            "extraWebpackConfig": "webpack.extra.js",
             "outputPath": "dist/angular-comlink-example",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -55,8 +56,9 @@
           }
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "ngx-build-plus:dev-server",
           "options": {
+            "extraWebpackConfig": "webpack.extra.js",
             "browserTarget": "angular-comlink-example:build"
           },
           "configurations": {
