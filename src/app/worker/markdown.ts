@@ -1,9 +1,9 @@
 import * as marked from 'marked';
-import * as Comlink from 'comlinkjs';
+import { expose } from 'comlinkjs';
 
 export class Markdown {
   compile(source: string) {
-    return new Promise((resolve, reject) => {
+    return new Promise<string>((resolve, reject) => {
       marked(source, (err, result) => {
         if (err) {
           reject(err);
@@ -15,4 +15,4 @@ export class Markdown {
   }
 }
 
-Comlink.proxy(self, Markdown);
+expose(Markdown, self);
