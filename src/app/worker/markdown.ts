@@ -1,5 +1,5 @@
 import * as marked from 'marked';
-import { expose } from 'comlinkjs';
+import { expose } from 'comlink';
 
 export class Markdown {
   compile(source: string) {
