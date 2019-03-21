@@ -15,4 +15,4 @@ export class Markdown {
   }
 }
 
-expose(Markdown, self as any);
+expose(Markdown);
