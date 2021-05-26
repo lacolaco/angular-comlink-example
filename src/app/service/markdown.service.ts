@@ -1,11 +1,17 @@
 import { Injectable } from '@angular/core';
 import { wrap } from 'comlink';
 
-async function createMarkdownWorker() {
-  const workerProxy = wrap<typeof import('../worker/markdown.worker').Markdown>(
-    new Worker(new URL('../worker/markdown.worker', import.meta.url), { type: 'module' }),
-  );
-  return await new workerProxy();
+async function compileMarkdown(source: string): Promise<string> {
+  if (window.Worker) {
+    const worker = wrap<typeof import('../worker/markdown.worker').api>(
+      new Worker(new URL('../worker/markdown.worker', import.meta.url))
+    );
+    return await worker.compileMarkdown(source);
+  } else {
+    // Fallback to main thread with dynamic imports
+    const worker = await import('../worker/markdown.worker').then((m) => m.api);
+    return await worker.compileMarkdown(source);
+  }
 }
 
 @Injectable({
@@ -13,7 +19,6 @@ async function createMarkdownWorker() {
 })
 export class MarkdownService {
   async compile(source: string): Promise<string> {
-    const markdownWorker = await createMarkdownWorker();
-    return markdownWorker.compile(source);
+    return await compileMarkdown(source);
   }
 }

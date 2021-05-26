@@ -1,8 +1,8 @@
 import * as marked from 'marked';
 import { expose } from 'comlink';
 
-export class Markdown {
-  compile(source: string) {
+export const api = {
+  compileMarkdown(source: string) {
     return new Promise<string>((resolve, reject) => {
       marked(source, (err, result) => {
         if (err) {
@@ -12,7 +12,7 @@ export class Markdown {
         resolve(result);
       });
     });
-  }
-}
+  },
+};
 
-expose(Markdown);
+expose(api);
