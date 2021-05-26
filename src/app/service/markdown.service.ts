@@ -3,7 +3,7 @@ import { wrap } from 'comlink';
 
 async function createMarkdownWorker() {
   const workerProxy = wrap<typeof import('../worker/markdown.worker').Markdown>(
-    new Worker('../worker/markdown.worker', { type: 'module' }),
+    new Worker(new URL('../worker/markdown.worker', import.meta.url), { type: 'module' }),
   );
   return await new workerProxy();
 }
